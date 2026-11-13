@@ -41,7 +41,6 @@
       margin-top: 15px;
     }
 
-   
     .dark {
       background-color: #121212;
       color: #ffffff;
@@ -59,8 +58,7 @@
 
 <body>
 
-  
-  <button onclick="document.body.classList.toggle('dark')" style="padding: 10px 20px; margin-bottom: 20px; cursor: pointer;">
+  <button id="darkModeBtn" style="padding: 10px 20px; margin-bottom: 20px; cursor: pointer;">
     Tmavý režim
   </button>
 
@@ -94,7 +92,43 @@
     <img src="https://www.autocollant-tuning.com/3259-product_main/sticker-et-autocollant-logo-verstappen.jpg"
          alt="Logo Maxa Verstappena">
 
+    <hr style="margin: 30px 0; border: 1px solid #ddd;">
+
+    <h2>Kolko titulov majstra sveta bude mať Max?</h2>
+    <button id="titulyBtn" style="padding: 10px 20px; cursor: pointer;">Hlasuj</button>
+    <p id="vysledok" style="font-weight: bold; margin-top: 15px;"></p>
+
   </div>
+
+  <script>
+    const darkModeBtn = document.getElementById("darkModeBtn");
+    darkModeBtn.addEventListener("click", function() {
+      document.body.classList.toggle("dark");
+    });
+
+    let kliknutia = 0;
+    const titulyBtn = document.getElementById("titulyBtn");
+    const vysledokP = document.getElementById("vysledok");
+
+    titulyBtn.addEventListener("click", function() {
+      kliknutia++;
+      let text = "";
+
+      if (kliknutia === 1) {
+        text = "málo";
+      } else if (kliknutia === 2) {
+        text = "stále málo";
+      } else if (kliknutia === 3) {
+        text = "skoro si tam";
+      } else if (kliknutia === 4) {
+        text = "zatiaľ áno";
+      } else {
+        text = "v budúcnosti isto";
+      }
+
+      vysledokP.innerText = text;
+    });
+  </script>
 
 </body>
 </html>
