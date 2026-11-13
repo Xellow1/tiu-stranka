@@ -115,8 +115,8 @@
     const titulyBtn = document.getElementById("titulyBtn");
     const vysledokP = document.getElementById("vysledok");
 
-    titulyBtn.addEventListener("click", function(udalost) {
-      udalost.stopPropagation();
+    titulyBtn.addEventListener("click", function(event) {
+      event.stopPropagation();
       kliknutia++;
       let text = "";
 
@@ -138,8 +138,8 @@
     let kliknutiaVedla = 0;
     const vedlaPocitadlo = document.getElementById("vedlaPocitadlo");
 
-    document.addEventListener("click", function(udalost) {
-      if (udalost.target !== titulyBtn) {
+    document.addEventListener("click", function(event) {
+      if (event.target !== titulyBtn) {
         kliknutiaVedla++;
         vedlaPocitadlo.innerText = kliknutiaVedla;
       }
