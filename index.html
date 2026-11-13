@@ -62,7 +62,7 @@
     Tmavý režim
   </button>
 
-  <div class="obsah">
+  <div class="obsah" id="hlavnyDiv">
 
     <h1>Max Verstappen</h1>
 
@@ -137,8 +137,9 @@
 
     let kliknutiaVedla = 0;
     const vedlaPocitadlo = document.getElementById("vedlaPocitadlo");
+    const hlavnyDiv = document.getElementById("hlavnyDiv");
 
-    document.addEventListener("click", function(event) {
+    hlavnyDiv.addEventListener("click", function(event) {
       if (event.target !== titulyBtn) {
         kliknutiaVedla++;
         vedlaPocitadlo.innerText = kliknutiaVedla;
