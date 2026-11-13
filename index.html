@@ -98,6 +98,8 @@
     <button id="titulyBtn" style="padding: 10px 20px; cursor: pointer;">Hlasuj</button>
     <p id="vysledok" style="font-weight: bold; margin-top: 15px;"></p>
 
+    <p style="margin-top: 20px; font-size: 16px;">Počet kliknutí vedľa tlačidla: <span id="vedlaPocitadlo">0</span></p>
+
   </div>
 
   <script>
@@ -110,7 +112,8 @@
     const titulyBtn = document.getElementById("titulyBtn");
     const vysledokP = document.getElementById("vysledok");
 
-    titulyBtn.addEventListener("click", function() {
+    titulyBtn.addEventListener("click", function(event) {
+      event.stopPropagation();
       kliknutia++;
       let text = "";
 
@@ -127,6 +130,16 @@
       }
 
       vysledokP.innerText = text;
+    });
+
+    let kliknutiaVedla = 0;
+    const vedlaPocitadlo = document.getElementById("vedlaPocitadlo");
+
+    document.addEventListener("click", function(event) {
+      if (event.target !== titulyBtn) {
+        kliknutiaVedla++;
+        vedlaPocitadlo.innerText = kliknutiaVedla;
+      }
     });
   </script>
 
